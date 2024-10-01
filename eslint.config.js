@@ -1,0 +1,50 @@
+import js from '@eslint/js'
+import globals from 'globals'
+import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+
+////////// CONFIGURANDO eslintr ///////////
+const RULES = {
+  OFF: 'off',
+  WARN: 'warn',
+  ERROR: 'error'
+}
+////////// CONFIGURANDO eslintr ///////////
+
+export default [
+  { ignores: ['dist'] },
+  {
+    files: ['**/*.{js,jsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    settings: { react: { version: '18.3' } },
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...reactHooks.configs.recommended.rules,
+////////// CONFIGURANDO eslintr ///////////
+'react/prop-types': RULES.OFF, 
+      'react/jsx-no-target-blank': RULES.OFF,
+////////// CONFIGURANDO eslintr ///////////
+
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+    },
+  },
+]
