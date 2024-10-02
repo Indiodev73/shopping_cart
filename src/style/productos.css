@@ -50,3 +50,7 @@
 .article:hover {
   height: auto;
 } */
+.link-style {
+  list-style: none;
+  text-decoration: none;
+}

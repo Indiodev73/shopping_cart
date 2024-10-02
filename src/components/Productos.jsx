@@ -1,13 +1,17 @@
 import '../style/productos.css'
 import { useCarrito } from '../hooks/useCarrito'
+import { useNavigate } from 'react-router-dom'
 import { AddToCartIcon, RemoveFromCartIcon } from './Icons'
 
 export function Productos({ productos }) {
+
   const { carrito, eliminarDelCarrito, agregarAlCarrito } = useCarrito()
+  const navigate = useNavigate()
 
   const chequearProductoEnCarrito = (prod) => {
     return carrito.some((item) => item.id === prod.id)
   }
+
 
   return (
     <main className='products'>
@@ -19,7 +23,7 @@ export function Productos({ productos }) {
             return (
               <li key={prod.id}>
                 <div>{prod.title}</div>
-                <img src={prod.image} alt={prod.title} />
+                <img src={prod.image} alt={prod.title} onDoubleClick={() => navigate(`/detail/${prod.id}`)}/>
                 <div>
                   <div>{prod.category}</div>
                   <strong>${prod.price}</strong>

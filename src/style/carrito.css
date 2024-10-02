@@ -54,3 +54,8 @@
   height: 100%;
   display: block;
 }
+.total {
+  background: #09f;
+  padding: 8px;
+  border-radius: 8px;
+}

@@ -1,0 +1,22 @@
+.detalle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background: #111;
+  color: #fff;
+  padding: 1rem;
+  margin-top: 32px;
+}
+
+.detalle img {
+  border-radius: 4px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+  object-fit: cover;
+  background: #fff;
+}
